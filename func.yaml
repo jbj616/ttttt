@@ -1,0 +1,26 @@
+specVersion: 0.34.0
+name: go-test
+runtime: go
+registry: idock.daumkakao.io/test_org/test
+image: idock.daumkakao.io/test_org/test/go-test:latest
+imageDigest: ""
+created: 2024-02-07T13:41:09.199821+09:00
+invocation:
+  format: http
+build:
+  buildpacks:
+  - paketo-buildpacks/go-dist
+  - ghcr.io/boson-project/go-function-buildpack:tip
+  builder: pack
+  buildEnvs: []
+run:
+  volumes: []
+  envs: []
+deploy:
+  namespace: ""
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness
